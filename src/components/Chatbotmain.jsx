@@ -21,7 +21,7 @@ const Chatbotmain = () => {
     setMessages((prev) => [...prev, { sender: 'user', text: prompt }]);
 
     try {
-      const res = await fetch('https://botbackend-26gz.onrender.com/api/message', {
+      const res = await fetch('https://botbackend-nie9.onrender.com/api/message', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: prompt }),
