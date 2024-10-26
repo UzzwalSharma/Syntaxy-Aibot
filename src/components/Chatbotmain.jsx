@@ -141,6 +141,20 @@ const Chatbotmain = () => {
           </button>
         </form>
       </motion.div>
+      <motion.footer 
+    className="mt-8 text-center text-gray-400 text-sm"
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay: 0.2, type: "spring", stiffness: 100 }}
+>
+    Made with <motion.span 
+      className="text-red-500" 
+      animate={{ scale: [1, 1.2, 1] }}
+      transition={{ duration: 1, repeat: Infinity, repeatType: 'reverse' }}
+    >
+      ❤️
+    </motion.span> by Ujjwal
+</motion.footer>
     </div>
   );
 };
