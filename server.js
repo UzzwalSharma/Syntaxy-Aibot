@@ -6,7 +6,8 @@ import cors from 'cors';
 
 
 const app = express();
-app.use(cors()); // Enable CORS for all routes
+app.use(cors({ origin: 'https://syntaxy-aibot.vercel.app' }));
+ // Enable CORS for all routes
 
 dotenv.config(); // Load environment variables from .env file
 
