@@ -1,15 +1,28 @@
-// server.js
 import express from 'express';
 import dotenv from 'dotenv';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import cors from 'cors';
 
-
 const app = express();
-app.use(cors()); // Enable CORS for all routes
+
+// Define allowed origins
+const allowedOrigins = [
+  'https://syntaxy-aibot.vercel.app',
+  'https://syntaxy-aibot-b4rb6813h-uzzwalsharmas-projects.vercel.app'
+];
+
+// Enable CORS for specified origins
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin, like mobile apps or curl
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      return callback(null, true);
+    }
+    return callback(new Error('Not allowed by CORS'));
+  }
+}));
 
 dotenv.config(); // Load environment variables from .env file
-
 
 app.use(express.json()); // Middleware to parse JSON request bodies
 
