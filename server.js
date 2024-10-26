@@ -7,8 +7,7 @@ const app = express();
 
 // Define allowed origins
 const allowedOrigins = [
-  'https://syntaxy-aibot.vercel.app',
-  'https://syntaxy-aibot-b4rb6813h-uzzwalsharmas-projects.vercel.app'
+  'https://syntaxy-aibot.vercel.app'
 ];
 
 // Enable CORS for specified origins
