@@ -1,57 +1,30 @@
+// import Sidebar from './components/Sidebar'
+import LandingPage from './components/Landingpage'
+// import './App.css'
+// import Chatbotmain from './components/Chatbotmain'
+import Mainpage from './components/Mainpage'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ClerkProvider, RedirectToSignIn, SignedIn, SignedOut, SignIn, SignUp, UserButton, UserProfile } from '@clerk/clerk-react';
-
-import Landingpage from '/src/components/Landingpage.jsx';
-import Mainpage from '/src/components/Mainpage.jsx';
-
-const clerkPubKey = process.env.VITE_CLERK_PUBLISHABLE_KEY;
+import { ClerkProvider } from '@clerk/clerk-react';
 
 function App() {
+
+  const clerkPubKey = process.env.VITE_CLERK_PUBLISHABLE_KEY;
   return (
-    <ClerkProvider publishableKey={clerkPubKey}>
-      <Router>
-        <div>
-          <UserButton afterSignOutUrl="/" /> {/* Adds user button for sign-out/profile access */}
-          
-          <Routes>
-            {/* Public Routes */}
-            <Route path="/" element={<Landingpage />} />
-            <Route path="/sign-in" element={<SignIn />} />
-            <Route path="/sign-up" element={<SignUp />} />
+  <div>
+    <Router>
+    <Routes>
+        {/* Define the paths for each component */}
+        <Route path="/" element={< LandingPage/>} />
+        <Route path="/Syntax's bot" element={<Mainpage />} />
+       
+       
+      </Routes>
+    </Router>
+{/* <Sidebar/> */}
+{/* <LandingPage/> */}
 
-            {/* Protected Routes */}
-            <Route 
-              path="/syntax-bot" 
-              element={
-                <SignedIn>
-                  <Mainpage />
-                </SignedIn>
-              } 
-            />
-
-            <Route 
-              path="/profile" 
-              element={
-                <SignedIn>
-                  <UserProfile />
-                </SignedIn>
-              } 
-            />
-
-            {/* Redirect to Sign In if accessing protected routes without authentication */}
-            <Route 
-              path="*" 
-              element={
-                <SignedOut>
-                  <RedirectToSignIn />
-                </SignedOut>
-              } 
-            />
-          </Routes>
-        </div>
-      </Router>
-    </ClerkProvider>
-  );
+  </div>
+  )
 }
 
-export default App;
+export default App
