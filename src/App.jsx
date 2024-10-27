@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ClerkProvider, RedirectToSignIn, SignedIn, SignedOut, SignIn, SignUp, UserButton, UserProfile } from '@clerk/clerk-react';
 
-import Landingpage from './components/Landingpage';
-import Mainpage from './components/Mainpage';
+import Landingpage from '/src/components/Landingpage.jsx';
+import Mainpage from '/src/components/Mainpage.jsx';
 
 const clerkPubKey = process.env.VITE_CLERK_PUBLISHABLE_KEY;
 
