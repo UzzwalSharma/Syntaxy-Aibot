@@ -4,11 +4,10 @@ import LandingPage from './components/Landingpage'
 // import Chatbotmain from './components/Chatbotmain'
 import Mainpage from './components/Mainpage'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ClerkProvider } from '@clerk/clerk-react';
+
 
 function App() {
 
-  const clerkPubKey = process.env.VITE_CLERK_PUBLISHABLE_KEY;
   return (
   <div>
     <Router>
